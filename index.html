@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.wrapper {
+			margin: 200px auto;
+			width: 400px;
+		}
+		#content {
+			color: #fff;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-size: 400%;
+			text-align: center;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<p id="content"></p>
+	</div>
+	<script>
+		(function(){
+			var colours = ['#6d95e0','#658fdc','#316ad3','#0382b3','#0e90d2','#1c8be0','#0990c3','#0590c3','#048fc2','#0b8fc0','#028dbf','#048bbe','#138abb','#008abd','#048abb','#0e83ae','#0382b3','#027ca7','#007bac','#0078a5','#0378a2','#03739f','#006991','#00a8dc','#76bfda','#4fbee0','#09b8ec','#00b1e6','#26b0dd','#04aeed','#31abd8','#00a8dc','#28a4d2','#04a2dc','#00a3d3','#00a1d2','#0e9dd2','#2b9cc6','#019bce','#0099d2','#0b96c9','#1696c5'];
+			var index = Math.floor(Math.random() * colours.length);
+
+			//TROLL TODO
+			//TODO: have the index be a hash of the user's environment so it's always the same for them
+			//TODO: randomly update when the tab loses visibility using the page visibility api
+
+			var style = document.createElement('style');
+			style.type = 'text/css' ;
+			style.appendChild(document.createTextNode('html {background-color: ' + colours[index] + '; }'));
+			document.getElementsByTagName('head')[0].appendChild(style);
+			document.getElementById('content').innerText = colours[index];
+		}());
+	</script>
+</body>
+</html>
